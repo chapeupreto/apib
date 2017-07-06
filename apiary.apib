@@ -1,36 +1,54 @@
 FORMAT: 1A
-
 # My API
 
-## GET /places
+Bit of a description or intro, and an introduction to how to OAuth, etc.
+
+# Group Places
+
+## Places Collection [/places]
+
+### GET
 
 + Response 200 (application/json)
-
     + Attributes
         - places (array[Place])
 
-## GET /places/{id}
+## Place Resource [/places/{id}]
 
 + Parameters
+  + id: `fRge5` - The unique ID of the place.
 
-    + id: `fRge5` - The unique ID of the place
-    
+### GET
+
 + Response 200 (application/json)
-
     + Attributes
         - places (Place)
+
+### PUT
+
++ Request (application/json)
+    + Attributes
+        - places (Place)
+
++ Response 200 (application/json)
+    + Attributes
+        - places (Place)
+
+### DELETE
+
++ Response 204
 
 
 # Data Structures
 
 ## Place (object)
 
-- id: `fRge5` (string)
-- name: `Battery Harris` (string)
+- id: `fRge5` (string, required) - The unique ID of the place.
+- name: `Battery Harris` (string, required) - Name of the place.
 - lat: `40.712017` (number, required) - Latitude as a decimal.
 - lon: `-73.950995` (number, required) - Longitude as a decimal.
 - status (enum[string])
-  - pending - They haven't finished their public profile or whatever
-  - active - Good as gold
-  - closed - This place doesn't exist
+  - pending - They haven't finished their public profile or whatever.
+  - active - Good as gold.
+  - closed - This place doesn't exist.
 - created_at: `2015-01-07T14:03:43Z` (string, required) - ISO8601 date and time of when the rider was created.
